@@ -33,7 +33,7 @@ próprio código.
 
 Para melhorar a performace acredito que usar um SSG faz sentido para esse formato
 de aplicação. Optei por não usar só porque é uma aplicação simples e eu estaria 
-complicando demais as coisas para nenhum ganho real. 
+complicando demais as coisas para ganhos insignificantes. 
 
 2. O que você poderia ter melhorado?
 
