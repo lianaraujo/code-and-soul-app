@@ -20,7 +20,7 @@ vizualizar um post com seu título e conteúdo.
 - Clone o repositório
 `git clone git@github.com:lianaraujo/code-and-soul-app.git`
 - Instale as dependências
-`yarn` ou `npm`
+`yarn` ou `npm install`
 - Inicie o servidor 
 `yarn start` ou `npm start`
 
