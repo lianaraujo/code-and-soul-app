@@ -26,4 +26,16 @@ vizualizar um post com seu título e conteúdo.
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
+## Questionário da avaliação
 
+1. Descreva possiveis otimizações de performance que você poderia fazer no seu
+próprio código.
+
+Para melhorar a performace acredito que usar um SSG faz sentido para esse formato
+de aplicação. Optei por não usar só porque é uma aplicação simples e eu estaria 
+complicando demais as coisas pra nenhum ganho real. 
+
+2. O que você poderia ter melhorado?
+
+Eu poderia ter componentizado mais e usado uma context API ao inves de ter botado
+a lista de posts no App.tsx e passado o array inteiro dos posts pro componente Post.tsx.
