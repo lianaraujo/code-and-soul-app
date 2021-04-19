@@ -15,6 +15,7 @@
 // retornados pela API. Removerndo o post que está sendo visualizado na Interna, mas
 // sempre mantendo 4 posts em exibição;
 import { useEffect, useState } from 'react';
+import { Header } from './components/Header';
 import { Post } from './components/Post'
 
 interface Posts {
@@ -23,15 +24,20 @@ interface Posts {
   body: string;
 }
 
-type PostData = Omit<Posts, "id">
+interface PostData {
+ id: number;
+ title: string;
+ body: string;
+ readMore: Posts[]
+}
 
 function App() {
   const [view, setView] = useState('postList')
   const [posts, setPosts] = useState<Posts[]>([]);
-  const [postData, setPostData] = useState<PostData>({title: "", body: ""})
+  const [postData, setPostData] = useState<PostData>({id: 0,title: "", body: "", readMore: []})
 
-  function handlePostClick(postTitle: string, postBody: string) {
-    setPostData({title: postTitle, body: postBody})
+  function handlePostClick(postId: number, postTitle: string, postBody: string, postList: Posts[]) {
+    setPostData({id: postId, title: postTitle, body: postBody, readMore: postList})
     setView('post')
   }
 
@@ -40,19 +46,20 @@ function App() {
     .then(response => response.json()
     .then(data => setPosts(data)))
   }, [])
-
   return (
     <>
+    <Header handleViewChange={()=> setView('postList')} />
     {view === 'post' ?  <Post post={postData} handleViewChange={()=> setView('postList')} /> : null} 
     {view === 'postList' ?  <section className="post-list">
       <h1>Lista de posts</h1>
 
       <ul>
         {posts.map((post) => {
+          
           return (
             <li key={post.id}>
               <button
-              onClick={() => handlePostClick(post.title, post.body)}
+              onClick={() => handlePostClick(post.id, post.title, post.body, posts)}
               ><strong>{post.title}</strong></button>
 
             </li>
