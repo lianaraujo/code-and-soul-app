@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import styles from '../styles/components/post.module.scss'
+
 interface Posts {
   id: number;
   title: string;
@@ -37,28 +39,28 @@ export function Post(props: PostProps) {
   }
 
   return (
-    <>
-    <h1>{currentPost.title}</h1>
-    <p>{currentPost.body}</p>
+    <div className={styles.postContainer}>
+      <h1>{currentPost.title}</h1>
+      <p>{currentPost.body}</p>
 
-    <button onClick={props.handleViewChange} >Lista de Posts</button>
+      <button id={styles.backButton} onClick={props.handleViewChange} >Voltar para lista de posts</button>
 
-    <h2>Leia mais: </h2>
+      <h2>Leia mais: </h2>
 
-    <ul>
-        {readMorePosts.map((post) => { 
-          return (
+      <ul>
+          {readMorePosts.map((post) => { 
+           return (
             
-            <li key={post.id}>
-              <button
-               onClick={() => handlePostChange(post.id, post.title, post.body)}
-              ><strong>{post.title}</strong></button>
+             <li key={post.id}>
+               <button
+                onClick={() => handlePostChange(post.id, post.title, post.body)}
+               ><strong>{post.title}</strong></button>
 
-            </li>
-          )
+             </li>
+           )
          
-          })}
-      </ul>
-    </>
+            })}
+        </ul>
+    </div>
   )
 }

@@ -1,22 +1,8 @@
-// listagem e visualização de postagem com duas views:
-
-// View1 - visualização que lista todos os posts a partir de uma chamada de api
-
-// exemplo de retorno GEt:
-// {
-// userId:1,
-// id:1,
-// "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-// "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-// }
-
-// View2 - Visualização interna do post exibindo o title e body do post
-// (opcional) - nessa view também pode ser exibido como "Leia mais" os 4 primeiros posts 
-// retornados pela API. Removerndo o post que está sendo visualizado na Interna, mas
-// sempre mantendo 4 posts em exibição;
 import { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Post } from './components/Post'
+
+import styles from './styles/index.module.scss'
 
 interface Posts {
   id: number;
@@ -49,6 +35,7 @@ function App() {
   return (
     <>
     <Header handleViewChange={()=> setView('postList')} />
+    <div className={styles.container}>
     {view === 'post' ?  <Post post={postData} handleViewChange={()=> setView('postList')} /> : null} 
     {view === 'postList' ?  <section className="post-list">
       <h1>Lista de posts</h1>
@@ -67,8 +54,9 @@ function App() {
         })}
       </ul>
     </section> : null} 
+    </div>
     </>
-  )
+      )
   
 }
 
