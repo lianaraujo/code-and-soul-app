@@ -18,11 +18,12 @@ vizualizar um post com seu título e conteúdo.
 ## Como executar
 
 - Clone o repositório
-`git clone git@github.com:lianaraujo/code-and-soul-app.git`
+`git clone git@github.com:lianaraujo/code-and-soul-app.git
+cd code-an-soul-app`
 - Instale as dependências
-`yarn` ou `npm install`
+`npm install` ou `yarn`
 - Inicie o servidor 
-`yarn start` ou `npm start`
+`npm start` ou `yarn start`
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
