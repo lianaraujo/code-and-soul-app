@@ -18,7 +18,7 @@ vizualizar um post com seu título e conteúdo.
 ## Como executar
 
 - Clone o repositório  
-`git clone git@github.com:lianaraujo/code-and-soul-app.git`
+`git clone git@github.com:lianaraujo/code-and-soul-app.git`  
 `cd code-an-soul-app`
 - Instale as dependências  
 `npm install` ou `yarn`
